@@ -1,6 +1,8 @@
 Para rodar o projeto:
 
-### `yarn start`
+### `yarn &&yarn start`
+ou
+### `npm install && npm start`
 
 <h5>Arquitetura e estrutura de pastas</h5>
 
