@@ -2,7 +2,7 @@ Para rodar o projeto:
 
 ### `yarn &&yarn start`
 ou
-### `npm install && npm start`
+### `npm install --legacy-peer-deps && npm start`
 
 <h5>Arquitetura e estrutura de pastas</h5>
 
