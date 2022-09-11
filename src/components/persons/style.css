@@ -1,0 +1,9 @@
+.list {
+  overflow-y: scroll;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

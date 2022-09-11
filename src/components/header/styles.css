@@ -1,0 +1,10 @@
+.items {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  text-decoration: underline;
+}
+
+p {
+  text-decoration: underline;
+}
