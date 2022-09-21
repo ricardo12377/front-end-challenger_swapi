@@ -14,10 +14,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 //requests && hooks
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../auth/loginAuthContext";
 import { UserType } from "../../types/user";
 import { yupSchema } from "../../formValidator/yupValidator";
 import { menssagerProvider } from "../../helpers/menssagerProvider";
+import { ButtonGroup } from "@mui/material";
 
 function Copyright(props: any) {
   return (
@@ -51,6 +53,7 @@ export default function Login() {
   const [login, setLogin] = useState<UserType>({ user: "", password: "" });
 
   const { validateUser } = useContext(UserContext);
+  const router = useNavigate();
 
   const HandleChange = (e: any) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -67,9 +70,18 @@ export default function Login() {
     });
   };
 
+  const backFunction = () => {
+    router("/");
+    console.log("succes");
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container
+        component="main"
+        maxWidth="xs"
+        sx={{ display: "flex", flexDirection: "column" }}
+      >
         <CssBaseline />
         <Box
           sx={{
@@ -117,16 +129,37 @@ export default function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              color="secondary"
-              className="login-button"
+            <ButtonGroup
+              sx={{
+                gap: 2,
+                width: 1 / 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
-              Entrar
-            </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, width: "150px" }}
+                color="secondary"
+                className="login-button"
+              >
+                Entrar
+              </Button>
+
+              <Button
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, width: "150px" }}
+                color="secondary"
+                className="login-button"
+                onClick={backFunction}
+              >
+                Voltar à Lista
+              </Button>
+            </ButtonGroup>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
